@@ -1,16 +1,12 @@
-###
 '''
 Created on 16 Oct 2021
-
 @author: mawo
 '''
 
-
-
+# import libraries and classes 
 import os
 #import pdfminer
 from os import path
-
 from io import StringIO
 
 from pdfminer.converter import TextConverter
@@ -31,6 +27,7 @@ def boldText(text, words):
     return text
 
 
+# set up the list of interesting words that you want to find in the pdf
 wordsToHighlight = ["Impairment", "Learning", "Memory", "Cognitive", "Function", "Decreased", "Cochlear", "Inhibition", "NMDARs", "sodium channel"]
 
 #inFiles = ["./data/pdf1.pdf","./data/pdf2.pdf","./data/pdf3.pdf"]
@@ -42,7 +39,7 @@ for folder in inFolders:
         if current.endswith(".pdf"):
             inFiles.append(path.join(folder, current))
             
-
+#set up folder where results will be placed
 outFile = r"C:\Users\maww\Desktop\In_vitro\outdata.html"
 #outFile = "\Users\maww\Desktop\In_vitro\outdata.html"
 
@@ -61,7 +58,7 @@ for inFile in inFiles:
             interpreter.process_page(page)
     
     
-    
+
     
     outputText = ""
     
